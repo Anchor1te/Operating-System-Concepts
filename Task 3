@@ -1,0 +1,27 @@
+To create your kernel module without any mistakes, the Makefile should provide the right path to the Linux kernel headers!
+
+the module was next loaded into the kernel.
+By running lsmod | grep my module and seeing ourmodule, we can confirm that the module has been loaded.
+
+This is evidence that our module can be added to the kernel.
+When I showed it here again after removing it, there was no my module kernel module.
+
+Creating a simple kernel in Kali Linux involves several steps. Here is an overview of the process:
+
+Install the necessary tools:
+Install the build-essential package: sudo apt-get install build-essential
+Install the kernel headers: sudo apt-get install linux-headers-$(uname -r)
+Install other required packages: sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc
+
+Download the kernel source code:
+
+    Visit https://www.kernel.org/ and choose the version of the kernel you want to use.
+    Download the corresponding tarball to your Kali Linux machine.
+    Extract the tarball: tar -xvf linux-x.y.z.tar.xz (replace x.y.z with the version number)
+
+Configure the kernel:
+
+    Change to the kernel source directory: cd linux-x.y.z
+    Copy the current kernel configuration: cp /boot/config-$(uname -r) .config
+    Configure the kernel: make menuconfig
+    In the menu, select the options you want for your custom kernel. You can use the arrow keys to navigate and the spacebar to select/deselect options.
